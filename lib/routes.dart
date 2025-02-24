@@ -1,5 +1,6 @@
 
 import 'package:admin/view/screen/auth/forgetpassword/successresetpassword.dart';
+import 'package:admin/view/screen/auth/signup.dart';
 import 'package:admin/view/screen/auth/success_sinup.dart';
 import 'package:admin/view/screen/auth/verfiycodesignup.dart';
 import 'package:admin/view/screen/home/home.dart';
@@ -28,6 +29,7 @@ List<GetPage<dynamic>>? routes=[
 
   //Auth
   GetPage(name: AppRoute.login, page: ()=> const Login()),
+  GetPage(name: AppRoute.signup, page: ()=> const SignUp()),
   GetPage(name: AppRoute.forgetPassword, page: ()=> const ForgetPassword()),
   GetPage(name: AppRoute.verFiyCode, page: ()=> const VerFiyCode()),
   GetPage(name: AppRoute.resetPassword, page: ()=> const ResetPassword()),

@@ -11,6 +11,7 @@ import '../../widget/auth/customtextbodyauth.dart';
 import '../../widget/auth/customtextformauth.dart';
 import '../../widget/auth/customtexttittleauth.dart';
 import '../../widget/auth/logoauth.dart';
+import '../../widget/auth/textsignup.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -57,17 +58,20 @@ class Login extends StatelessWidget {
                           const SizedBox(
                             height: 15,
                           ),
-                          CustomTextFormAuth(
-                              type: TextInputType.emailAddress,
-                              mycontroller: controller.email,
-                              label: "18".tr,
-                              hintText: "12".tr,
-                              suffixIcon: const Icon(Icons.email_outlined),
-                              valid: (val) {
-                                return validInput(val, 5, 30, "email");
-                              }),
                           Container(
-                            margin:const EdgeInsets.all(2),
+                            margin:const EdgeInsets.all(3),
+                            child: CustomTextFormAuth(
+                                type: TextInputType.emailAddress,
+                                mycontroller: controller.email,
+                                label: "18".tr,
+                                hintText: "12".tr,
+                                suffixIcon: const Icon(Icons.email_outlined),
+                                valid: (val) {
+                                  return validInput(val, 5, 30, "email");
+                                }),
+                          ),
+                          Container(
+                            margin:const EdgeInsets.all(5),
                             child: CustomTextFormAuth(
                                 obscureText: controller.isshowpassword,
                                 onTap: () {
@@ -105,6 +109,15 @@ class Login extends StatelessWidget {
                             ),
                           ),
 
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          CustomTextSing(
+                              text: "16".tr,
+                              textTwo: "17".tr,
+                              onTap: () {
+                                controller.goToSignUp();
+                              })
                         ],
                       ),
                     ),

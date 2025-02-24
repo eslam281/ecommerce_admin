@@ -92,4 +92,7 @@ class LoginControllerImp extends LoginController{
     Get.toNamed(AppRoute.forgetPassword);
   }
 
+  goToSignUp(){
+    Get.toNamed(AppRoute.signup);
+  }
 }
