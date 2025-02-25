@@ -19,8 +19,12 @@ class Home extends StatelessWidget {
           return  Scaffold(
             appBar:AppBar(title:const Text("Orders"),),
               body: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-              child:const Text("data")),
+                  margin: const EdgeInsets.all(15),
+              child:ListView(
+                children: const [
+                  Center(child: Text("data")),
+                ],
+              )),
             );
         }
       );

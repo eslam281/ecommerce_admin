@@ -14,20 +14,7 @@ class AppRoute{
   static const String verFiyCodeSignUp = "/verfiycodesignup";
   // home
   static const String home = "/home";
-  static const String homepage = "/homepage";
-  static const String offers = "/offers";
-  static const String items = "/items";
-  static const String productdetails = "/productdetails";
-  static const String myfavroite = "/myfavroite";
-
-  //Address
-  static const String addressView = "/addressView";
-  static const String addressAdd  = "/addressAdd";
-  static const String addressEdit = "/addressEdit";
-
-  //Checkout
-  static const String cart = "/cart";
-  static const String checkout = "/checkout";
+  static const String order = "/order";
 
   //Orders
   static const String pending = "/pending";

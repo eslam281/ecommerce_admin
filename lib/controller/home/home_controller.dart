@@ -2,12 +2,12 @@
 import 'package:get/get.dart';
 
 
-abstract class HomeContorller extends GetxController{
+abstract class HomeController extends GetxController{
 
 
 }
 
-class HomeControllerImp extends HomeContorller{
+class HomeControllerImp extends HomeController{
 
 
   

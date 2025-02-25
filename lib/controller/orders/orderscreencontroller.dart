@@ -10,23 +10,21 @@ import '../../view/screen/settings/settings.dart';
 
 
 
-abstract class HomeScreenController extends GetxController {
+abstract class OrderScreenController extends GetxController {
   changePage(int i);
 }
 
-class HomeScreenControllerImp extends HomeScreenController {
+class OrderScreenControllerImp extends OrderScreenController {
   int currentpage = 0;
   List<Widget> listpage = [
     const Pending(),
     const OrdersAccepted(),
     const Archive(),
-    const Settings(),
   ];
   List<Map> bottomappbat = [
     {"title": "pending", "icon": Icons.padding_rounded},
     {"title": "Accepted", "icon": Icons.delivery_dining},
     {"title": "archive", "icon": Icons.archive},
-    {"title": "settings", "icon": Icons.settings},
   ];
 
   @override

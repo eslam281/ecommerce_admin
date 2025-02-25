@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-import '../../../controller/home/Homescreencontroller.dart';
+import '../../../controller/orders/orderscreencontroller.dart';
 import '../../../core/functions/alertexitapp.dart';
 import '../../widget/home/custombottomappbarhome.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class OrderScreen extends StatelessWidget {
+  const OrderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeScreenControllerImp());
-    return GetBuilder<HomeScreenControllerImp>(
+    Get.put(OrderScreenControllerImp());
+    return GetBuilder<OrderScreenControllerImp>(
       builder: (controller) {
         return Scaffold(
           bottomNavigationBar:const CustomBottomAppBarHome(),

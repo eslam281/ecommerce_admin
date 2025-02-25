@@ -4,7 +4,7 @@ import 'package:admin/view/screen/auth/signup.dart';
 import 'package:admin/view/screen/auth/success_sinup.dart';
 import 'package:admin/view/screen/auth/verfiycodesignup.dart';
 import 'package:admin/view/screen/home/home.dart';
-import 'package:admin/view/screen/home/homescreen.dart';
+import 'package:admin/view/screen/orders/orderscreen.dart';
 import 'package:admin/view/screen/initialstart/language.dart';
 import 'package:admin/view/screen/initialstart/onboarding.dart';
 import 'package:admin/view/screen/orders/details.dart';
@@ -37,8 +37,8 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.successSignUp, page: ()=> const SuccessSinUp()),
   GetPage(name: AppRoute.verFiyCodeSignUp, page: ()=> const VerFiyCodeSignUp()),
   // Home
-  GetPage(name: AppRoute.home, page: ()=> const HomeScreen()),
-  GetPage(name: AppRoute.homepage, page: ()=> const Home()),
+  GetPage(name: AppRoute.order, page: ()=> const OrderScreen()),
+  GetPage(name: AppRoute.home, page: ()=> const Home()),
 
   GetPage(name: AppRoute.ordersdetails, page: ()=> const OrdersDetails()),
 
