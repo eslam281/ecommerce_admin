@@ -1,8 +1,10 @@
 
+import 'package:admin/view/widget/home/cardadmin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/home/home_controller.dart';
+import '../../../core/constant/imageasset.dart';
 
 
 class Home extends StatelessWidget {
@@ -21,8 +23,21 @@ class Home extends StatelessWidget {
               body: Container(
                   margin: const EdgeInsets.all(15),
               child:ListView(
-                children: const [
-                  Center(child: Text("data")),
+                children: [
+                  GridView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount
+                        (crossAxisCount: 3,mainAxisExtent: 150),
+                      children: [
+                        CardAdmin(url: "url", title: "Users", onTap: (){}),
+                        CardAdmin(url: "url", title: "Product", onTap: (){}),
+                        CardAdmin(url: "url", title: "Orders", onTap: (){}),
+                        CardAdmin(url: "url", title: "Message", onTap: (){}),
+                        CardAdmin(url: "url", title: "Report", onTap: (){}),
+
+                      ])
                 ],
               )),
             );

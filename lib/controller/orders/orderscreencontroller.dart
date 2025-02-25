@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../view/screen/orders/accepted.dart';
 import '../../view/screen/orders/archive.dart';
 import '../../view/screen/orders/pending.dart';
-import '../../view/screen/settings/settings.dart';
 
 
 
