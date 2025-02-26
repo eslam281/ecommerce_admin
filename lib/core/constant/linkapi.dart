@@ -6,7 +6,9 @@ class AppLink{
 
   // ============================== Image =================================//
 
-  static const String imageststatic = "$server/upload"; //10.0.2.2 =localhost very important
+  static const String imageststatic = "$server/upload";
+  static const String cateimages = "$imageststatic/categories/";
+  static const String itemsimages = "$imageststatic/items/";
 
   // ============================== Auth =================================//
   static const String login ="$server/admin/auth/login.php";
@@ -20,15 +22,15 @@ class AppLink{
   static const String resetpassword ="$server/admin/forgetpassword/resetpassword.php";
 
 // ============================== Categories =================================//
-  static const String Categoriesadd ="$server/admin/categories/add.php";
-  static const String Categoriesedit ="$server/admin/categories/edit.php";
-  static const String Categoriesview ="$server/admin/categories/view.php";
-  static const String Categoriesdelete ="$server/admin/categories/delete.php";
+  static const String categoriesadd ="$server/admin/categories/add.php";
+  static const String categoriesedit ="$server/admin/categories/edit.php";
+  static const String categoriesview ="$server/admin/categories/view.php";
+  static const String categoriesdelete ="$server/admin/categories/delete.php";
   // ============================== Items =================================//
-  static const String Itemsadd ="$server/admin/items/add.php";
-  static const String Itemsedit ="$server/admin/items/edit.php";
-  static const String Itemsview ="$server/admin/items/view.php";
-  static const String Itemsdelete ="$server/admin/items/delete.php";
+  static const String itemsadd ="$server/admin/items/add.php";
+  static const String itemsedit ="$server/admin/items/edit.php";
+  static const String itemsview ="$server/admin/items/view.php";
+  static const String itemsdelete ="$server/admin/items/delete.php";
 
 // ============================== Orders =================================//
   static const String pending ="$server/admin/orders/view.php";
