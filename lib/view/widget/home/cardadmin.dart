@@ -3,7 +3,6 @@ import 'package:admin/core/constant/linkapi.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/constant/imageasset.dart';
 
 class CardAdmin extends StatelessWidget {
   final String url;
@@ -15,7 +14,7 @@ class CardAdmin extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(onTap:onTap,
       child: Card(child:Column(children: [
-        CachedNetworkImage(imageUrl: "${AppLink.imageststatic+url}",width: 90, ),
+        Image.asset(url,width: 90, ),
         Text(title)
       ],),),
     );

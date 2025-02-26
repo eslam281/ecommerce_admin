@@ -16,6 +16,16 @@ class AppRoute{
   static const String home = "/home";
   static const String order = "/order";
 
+  //Categories
+  static const String categoriesview = "/categoriesview";
+  static const String categoriesadd = "/categoriesview";
+  static const String categoriesedit = "/categoriesview";
+
+  //items
+  static const String itemsview = "/itemsview";
+  static const String itemsadd = "/itemsadd";
+  static const String itemsedit = "/itemsedit";
+
   //Orders
   static const String pending = "/pending";
   static const String archive = "/archive";

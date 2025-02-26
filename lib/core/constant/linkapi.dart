@@ -19,7 +19,18 @@ class AppLink{
   static const String verfiycode_password ="$server/admin/forgetpassword/verfiycode.php";
   static const String resetpassword ="$server/admin/forgetpassword/resetpassword.php";
 
-// ============================== Home =================================//
+// ============================== Categories =================================//
+  static const String Categoriesadd ="$server/admin/categories/add.php";
+  static const String Categoriesedit ="$server/admin/categories/edit.php";
+  static const String Categoriesview ="$server/admin/categories/view.php";
+  static const String Categoriesdelete ="$server/admin/categories/delete.php";
+  // ============================== Items =================================//
+  static const String Itemsadd ="$server/admin/items/add.php";
+  static const String Itemsedit ="$server/admin/items/edit.php";
+  static const String Itemsview ="$server/admin/items/view.php";
+  static const String Itemsdelete ="$server/admin/items/delete.php";
+
+// ============================== Orders =================================//
   static const String pending ="$server/admin/orders/view.php";
   static const String archive ="$server/admin/orders/archive.php";
   static const String acceptedOrders ="$server/admin/orders/accepted.php";

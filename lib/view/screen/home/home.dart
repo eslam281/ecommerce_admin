@@ -1,10 +1,12 @@
 
+import 'package:admin/core/constant/imageasset.dart';
+import 'package:admin/core/constant/routes.dart';
 import 'package:admin/view/widget/home/cardadmin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/home/home_controller.dart';
-import '../../../core/constant/imageasset.dart';
+
 
 
 class Home extends StatelessWidget {
@@ -31,11 +33,14 @@ class Home extends StatelessWidget {
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount
                         (crossAxisCount: 3,mainAxisExtent: 150),
                       children: [
-                        CardAdmin(url: "url", title: "Users", onTap: (){}),
-                        CardAdmin(url: "url", title: "Product", onTap: (){}),
-                        CardAdmin(url: "url", title: "Orders", onTap: (){}),
-                        CardAdmin(url: "url", title: "Message", onTap: (){}),
-                        CardAdmin(url: "url", title: "Report", onTap: (){}),
+                        CardAdmin(url:AppImageAsset.logo, title: "Users", onTap: (){}),
+                        CardAdmin(url: AppImageAsset.logo, title: "Product", onTap: (){}),
+                        CardAdmin(url: AppImageAsset.logo, title: "Categories", onTap: (){
+                          Get.toNamed(AppRoute.categoriesview);
+                        }),
+                        CardAdmin(url: AppImageAsset.logo, title: "Orders", onTap: (){}),
+                        CardAdmin(url: AppImageAsset.logo, title: "Message", onTap: (){}),
+                        CardAdmin(url: AppImageAsset.logo, title: "Report", onTap: (){}),
 
                       ])
                 ],

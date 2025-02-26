@@ -3,6 +3,7 @@ import 'package:admin/view/screen/auth/forgetpassword/successresetpassword.dart'
 import 'package:admin/view/screen/auth/signup.dart';
 import 'package:admin/view/screen/auth/success_sinup.dart';
 import 'package:admin/view/screen/auth/verfiycodesignup.dart';
+import 'package:admin/view/screen/categories/view.dart';
 import 'package:admin/view/screen/home/home.dart';
 import 'package:admin/view/screen/orders/orderscreen.dart';
 import 'package:admin/view/screen/initialstart/language.dart';
@@ -39,6 +40,9 @@ List<GetPage<dynamic>>? routes=[
   // Home
   GetPage(name: AppRoute.order, page: ()=> const OrderScreen()),
   GetPage(name: AppRoute.home, page: ()=> const Home()),
+
+  //Categories
+  GetPage(name: AppRoute.categoriesview, page: ()=> const CategoriesView()),
 
   GetPage(name: AppRoute.ordersdetails, page: ()=> const OrdersDetails()),
 
