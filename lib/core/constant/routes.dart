@@ -18,8 +18,8 @@ class AppRoute{
 
   //Categories
   static const String categoriesview = "/categoriesview";
-  static const String categoriesadd = "/categoriesview";
-  static const String categoriesedit = "/categoriesview";
+  static const String categoriesadd = "/categoriesadd";
+  static const String categoriesedit = "/categoriesedit";
 
   //items
   static const String itemsview = "/itemsview";

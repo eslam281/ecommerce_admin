@@ -1,6 +1,6 @@
 import 'package:admin/core/class/handlingdataview.dart';
 import 'package:admin/core/constant/linkapi.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:admin/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -15,6 +15,10 @@ class CategoriesView extends StatelessWidget {
     Get.put( CategoriesViewController());
     return Scaffold(
       appBar:AppBar(title:const Text("Categories"),),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Get.toNamed(AppRoute.categoriesadd);
+      },
+      child:const Icon(Icons.add),),
       body:Container(
         margin:const EdgeInsets.all(10),
         child:GetBuilder<CategoriesViewController>(
@@ -27,11 +31,14 @@ class CategoriesView extends StatelessWidget {
                 return Card(child: Row(
                   children: [
                     Expanded(flex: 2,
-                      child: SvgPicture.network("${AppLink.cateimages + current.categoriesImage!}"
+                      child: SvgPicture.network(AppLink.cateimages + current.categoriesImage!
                         ,width: 70,)
                     ),
-                    Expanded(flex: 4,
-                        child:ListTile(title:Text(current.categoriesName!),)),
+                    Expanded(flex: 3,
+                        child:ListTile(title:Text(current.categoriesName!),
+                        subtitle: Text(current.categoriesDatatime!),
+                        trailing:const Icon(Icons.edit),
+                        onTap:(){},)),
                   ],
                 ));
                   }
