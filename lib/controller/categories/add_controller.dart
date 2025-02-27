@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 
 import '../../core/class/statusrequest.dart';
 import '../../core/functions/handlingdata.dart';
+import '../../core/functions/uploadfile.dart';
 import '../../data/datasource/remote/categories_data.dart';
 
 
@@ -31,6 +32,10 @@ class CategoriesAddController extends GetxController{
   intialdata(){
     name = TextEditingController();
     namear = TextEditingController();
+  }
+  chooseImage()async{
+    file = await fileUploadGallery(true);
+    update();
   }
 
   addData()async{
