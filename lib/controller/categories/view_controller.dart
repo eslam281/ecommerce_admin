@@ -36,7 +36,6 @@ class CategoriesViewController extends GetxController{
     update();
   }
   deleteCategory(String id ,String imagename)async{
-    statusRequest =StatusRequest.loading;
     var response =await categoriesData.deleteData(id,imagename);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
