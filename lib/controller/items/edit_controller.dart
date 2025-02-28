@@ -20,6 +20,14 @@ class ItemsEditController extends GetxController{
   StatusRequest statusRequest = StatusRequest.onitnial;
   late TextEditingController name ;
   late TextEditingController namear ;
+  late TextEditingController items_categ ;
+  late TextEditingController items_desc ;
+  late TextEditingController items_desc_ar ;
+  late TextEditingController items_count ;
+  late TextEditingController items_price ;
+  late TextEditingController items_discount ;
+
+
   late ItemsModel itemsModel;
   File? file;
 
@@ -33,9 +41,22 @@ class ItemsEditController extends GetxController{
   intialdata(){
     name = TextEditingController();
     namear = TextEditingController();
+    items_categ = TextEditingController();
+    items_desc = TextEditingController();
+    items_desc_ar = TextEditingController();
+    items_count = TextEditingController();
+    items_price = TextEditingController();
+    items_discount = TextEditingController();
+
     itemsModel = Get.arguments["itemsModel"];
-    name.text = itemsModel.categoriesName!;
-    namear.text = itemsModel.categoriesNameAr!;
+    name.text = itemsModel.itemsName!;
+    namear.text = itemsModel.itemsNameAr!;
+    items_categ.text = itemsModel.itemsCateg.toString();
+    items_desc.text = itemsModel.itemsDesc!;
+    items_desc_ar.text = itemsModel.itemsDescAr!;
+    items_count.text = itemsModel.itemsCount.toString();
+    items_price.value = itemsModel.itemsPrice;
+    items_discount.text = itemsModel.itemsDiscount.toString();
   }
   @override
   dispose(){
@@ -58,9 +79,16 @@ class ItemsEditController extends GetxController{
       statusRequest = StatusRequest.loading;
       Map data={
         "id":itemsModel.itemsId,
+        "imagenameold":itemsModel.itemsImage,
         "name":name.text,
         "namear":namear.text,
-        "imagename":itemsModel.itemsImage,
+        "items_categ":items_categ.text,
+        "items_desc":items_desc.text,
+        "items_desc_ar":items_desc_ar.text,
+        "items_count":items_count.text,
+        // "items_active":items_active.text,
+        "items_price":items_price.text,
+        "items_discount":items_discount.text,
       };
       var response = await itemsData.editData(data,file);
       statusRequest = handlingData(response);

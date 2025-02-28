@@ -17,6 +17,11 @@ validInput(val,int min,int max,type){
       return "not valid Phone";
     }
   }
+  if(type == "number"){
+    if(!GetUtils.isNum(val)){
+      return "not valid number";
+    }
+  }
   if(val.isEmpty){
     return "can't be empty";
   }

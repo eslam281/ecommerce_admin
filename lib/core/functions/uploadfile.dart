@@ -2,7 +2,12 @@
 
 import 'dart:io';
 
+import 'package:admin/core/constant/color.dart';
+import 'package:admin/core/services/services.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 
@@ -33,4 +38,44 @@ fileUploadGallery([bool isSvg = false])async{
     return null ;
   }
 
+}
+
+showbottommenu(Function() imageUploadCamera,Function() fileUploadGallery){
+  MyServices myServices =Get.find();
+  Get.bottomSheet(
+    backgroundColor:Colors.white,
+    Directionality(
+        textDirection:myServices.sharedPreferences.getString("lang")=="en"?
+        TextDirection.ltr:TextDirection.rtl
+
+        , child:Container(
+      padding: const EdgeInsets.all(10),height:200,
+      child:Column(
+        crossAxisAlignment:CrossAxisAlignment.start,
+        children: [
+        const Text("choose image",style:TextStyle(
+          fontSize: 22,fontWeight: FontWeight.bold,color:AppColor.primaryColor
+        ),),
+          const SizedBox(height: 10,),
+
+          ListTile(
+            onTap:(){
+              imageUploadCamera();
+              Get.back();
+            },
+            leading:const Icon(Icons.camera_alt,size: 40,),
+            title:const Text("take photo",style:TextStyle(fontSize: 20),),
+          ),
+
+          ListTile(
+            onTap:(){
+              fileUploadGallery();
+              Get.back();
+            },
+            leading:const Icon(Icons.image,size: 40,),
+            title:const Text("choose photo form gallery",style:TextStyle(fontSize: 20),),
+          ),
+      ],),
+    ))
+  );
 }
