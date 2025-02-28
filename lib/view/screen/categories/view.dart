@@ -47,7 +47,7 @@ class CategoriesView extends StatelessWidget {
                               onCancel: (){},
                           );
                         } ,),
-                        onTap:(){},)
+                        onTap:(){controller.goToPageEdit(current);},)
                     ),
                   ],
                 ));

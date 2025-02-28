@@ -1,4 +1,5 @@
 
+import 'package:admin/core/constant/routes.dart';
 import 'package:admin/data/model/categoriesmodel.dart';
 import 'package:get/get.dart';
 
@@ -46,6 +47,10 @@ class CategoriesViewController extends GetxController{
       }
     }
     update();
+  }
+
+  goToPageEdit(CategoriesModel categoriesModel){
+    Get.toNamed(AppRoute.categoriesedit,arguments:{"categoriesModel":categoriesModel});
   }
 
 }

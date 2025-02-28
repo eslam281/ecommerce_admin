@@ -2,7 +2,6 @@
 import 'dart:io';
 
 import 'package:admin/controller/categories/view_controller.dart';
-import 'package:admin/core/constant/routes.dart';
 import 'package:admin/data/model/categoriesmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';

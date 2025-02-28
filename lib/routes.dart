@@ -4,6 +4,7 @@ import 'package:admin/view/screen/auth/signup.dart';
 import 'package:admin/view/screen/auth/success_sinup.dart';
 import 'package:admin/view/screen/auth/verfiycodesignup.dart';
 import 'package:admin/view/screen/categories/add.dart';
+import 'package:admin/view/screen/categories/edit.dart';
 import 'package:admin/view/screen/categories/view.dart';
 import 'package:admin/view/screen/home/home.dart';
 import 'package:admin/view/screen/orders/orderscreen.dart';
@@ -45,7 +46,7 @@ List<GetPage<dynamic>>? routes=[
   //Categories
   GetPage(name: AppRoute.categoriesview, page: ()=> const CategoriesView()),
   GetPage(name: AppRoute.categoriesadd, page: ()=> const CategoriesAdd()),
-  GetPage(name: AppRoute.categoriesedit, page: ()=> const CategoriesView()),
+  GetPage(name: AppRoute.categoriesedit, page: ()=> const CategoriesEdit()),
 
   GetPage(name: AppRoute.ordersdetails, page: ()=> const OrdersDetails()),
 

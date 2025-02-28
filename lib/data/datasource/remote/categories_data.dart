@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:admin/core/class/statusrequest.dart';
+
+import 'package:dartz/dartz.dart';
+
 import '../../../core/class/crud.dart';
 import '../../../core/constant/linkapi.dart';
 
@@ -20,9 +24,13 @@ class CategoriesData{
     return response.fold((l) => l, (r) => r,);
   }
 
-  editData(Map data)async{
-    var response =
-    await crud.postData(AppLink.categoriesedit, data);
+  editData(Map data,[File? file])async{
+    Either<StatusRequest, Map> response;
+    (file == null)?
+       response = await crud.postData(AppLink.categoriesedit, data)
+      :
+       response = await crud.addRequestWithImageOne(AppLink.categoriesedit, data,file);
+
     return response.fold((l) => l, (r) => r,);
   }
 
