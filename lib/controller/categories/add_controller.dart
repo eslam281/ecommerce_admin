@@ -1,6 +1,7 @@
 
 import 'dart:io';
 
+import 'package:admin/controller/categories/view_controller.dart';
 import 'package:admin/core/constant/routes.dart';
 import 'package:admin/data/model/categoriesmodel.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,7 @@ class CategoriesAddController extends GetxController{
   StatusRequest statusRequest = StatusRequest.onitnial;
   late TextEditingController name ;
   late TextEditingController namear ;
-  late File file;
+  File? file;
 
   GlobalKey<FormState> formstat = GlobalKey<FormState>();
 
@@ -33,6 +34,13 @@ class CategoriesAddController extends GetxController{
     name = TextEditingController();
     namear = TextEditingController();
   }
+  @override
+  dispose(){
+    super.dispose();
+    namear.dispose();
+    name.dispose();
+  }
+
   chooseImage()async{
     file = await fileUploadGallery(true);
     update();
@@ -40,16 +48,19 @@ class CategoriesAddController extends GetxController{
 
   addData()async{
     if(formstat.currentState!.validate()) {
+      if(file == null) return Get.snackbar("waring", " choose image");
       statusRequest = StatusRequest.loading;
       Map data={
         "name":name.text,
         "namear":namear.text,
       };
-      var response = await categoriesData.addData(data,file);
+      var response = await categoriesData.addData(data,file!);
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
-         Get.offNamed(AppRoute.categoriesview);
+          CategoriesViewController c =Get.find();
+          await c.getData();
+          Get.back();
         } else {
           statusRequest = StatusRequest.failure;
         }

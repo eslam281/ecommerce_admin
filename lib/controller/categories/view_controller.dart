@@ -14,7 +14,14 @@ class CategoriesViewController extends GetxController{
   List<CategoriesModel> data =[];
   late StatusRequest statusRequest ;
 
+  @override
+  void onInit() {
+    getData();
+    super.onInit();
+  }
+
   getData()async{
+    data.clear();
     statusRequest =StatusRequest.loading;
     var response =await categoriesData.getData();
     statusRequest =handlingData(response);
@@ -28,9 +35,18 @@ class CategoriesViewController extends GetxController{
     }
     update();
   }
-  @override
-  void onInit() {
-    getData();
-    super.onInit();
+  deleteCategory(String id ,String imagename)async{
+    statusRequest =StatusRequest.loading;
+    var response =await categoriesData.deleteData(id,imagename);
+    statusRequest =handlingData(response);
+    if(statusRequest == StatusRequest.success){
+      if(response['status']=="success"){
+        data.removeWhere((element) => element.categoriesId == id,);
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
+
 }

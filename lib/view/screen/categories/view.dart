@@ -37,8 +37,9 @@ class CategoriesView extends StatelessWidget {
                     Expanded(flex: 3,
                         child:ListTile(title:Text(current.categoriesName!),
                         subtitle: Text(current.categoriesDatatime!),
-                        trailing:const Icon(Icons.edit),
-                        onTap:(){},)),
+                        trailing:const Icon(Icons.delete_forever_outlined),
+                        onTap:(){controller.deleteCategory(current.categoriesId,
+                            current.categoriesImage!);},)),
                   ],
                 ));
                   }
