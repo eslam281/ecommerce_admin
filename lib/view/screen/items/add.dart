@@ -56,6 +56,37 @@ class ItemsAdd extends StatelessWidget {
                       mycontroller: controller.items_discount, valid:(v0) => validInput(v0,0,3,"name") ,
                       type:TextInputType.name),
 
+                  TextFormField(
+                      controller: controller.items_categ,
+                      cursorColor: Colors.black,
+                      readOnly: true,
+                      onTap: () {
+                        FocusScope.of(context).unfocus();
+                        controller.showDropdownList(context);
+                      },
+                      decoration:  InputDecoration(
+                        filled: true,
+                        fillColor: Colors.black12,
+                        contentPadding: const EdgeInsets.only(
+                          left: 8,
+                          bottom: 0,
+                          top: 0,
+                          right: 15,
+                        ),
+                        hintText:controller.items_categ.text==""? "choose category":
+                        controller.items_categ.text,
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 1,
+                            style: BorderStyle.none,
+                          ),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(8.0),
+                          ),
+                        ),
+                      ),
+                  ),
+
 
                   Container(
                     padding:const EdgeInsets.all(20),

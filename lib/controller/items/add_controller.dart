@@ -1,11 +1,14 @@
 
 import 'dart:io';
 
+import 'package:admin/controller/categories/view_controller.dart';
 import 'package:admin/controller/items/view_controller.dart';
 import 'package:admin/data/model/itemsmodel.dart';
+import 'package:drop_down_list/drop_down_list.dart';
+import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 import '../../core/class/statusrequest.dart';
 import '../../core/functions/handlingdata.dart';
@@ -103,6 +106,31 @@ class ItemsAddController extends GetxController{
       }
       update();
     }
+  }
+  showDropdownList(context)async{
+    CategoriesViewController c = Get.put(CategoriesViewController());
+     List<SelectedListItem<String>> listOfCities =[];
+    await c.getData();
+
+     listOfCities.addAll( c.data.map((e) =>
+         SelectedListItem<String>(data: e.categoriesName!),));
+    DropDownState<String>(
+      dropDown: DropDown<String>(
+        data: listOfCities,
+        onSelected: (selectedItems) {
+          SelectedListItem selectedListItem = selectedItems[0];
+          items_categ.text = selectedListItem.data;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                selectedListItem.data.toString(),
+              ),
+            ),
+          );
+        },
+
+      ),
+    ).showModal(context);
   }
 
 }
