@@ -34,7 +34,9 @@ class Home extends StatelessWidget {
                         (crossAxisCount: 3,mainAxisExtent: 150),
                       children: [
                         CardAdmin(url:AppImageAsset.logo, title: "Users", onTap: (){}),
-                        CardAdmin(url: AppImageAsset.logo, title: "Product", onTap: (){}),
+                        CardAdmin(url: AppImageAsset.logo, title: "Items", onTap: (){
+                          Get.toNamed(AppRoute.itemsview);
+                        }),
                         CardAdmin(url: AppImageAsset.logo, title: "Categories", onTap: (){
                           Get.toNamed(AppRoute.categoriesview);
                         }),

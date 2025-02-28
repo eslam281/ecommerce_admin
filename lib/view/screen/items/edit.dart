@@ -7,16 +7,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/categories/edit_controller.dart';
+import '../../../controller/items/edit_controller.dart';
 import '../../../core/functions/validinput.dart';
 
-class CategoriesEdit extends StatelessWidget {
-  const CategoriesEdit({super.key});
+class ItemsEdit extends StatelessWidget {
+  const ItemsEdit({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CategoriesEditController());
+    Get.put(ItemsEditController());
     return Scaffold(
-      appBar:AppBar(title:const Text("Edit Category"),),
+      appBar:AppBar(title:const Text("Edit Items"),),
       body:GetBuilder<CategoriesEditController>(
           builder: (controller) {
             return HandlingDataView(

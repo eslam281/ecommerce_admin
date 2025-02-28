@@ -7,6 +7,9 @@ import 'package:admin/view/screen/categories/add.dart';
 import 'package:admin/view/screen/categories/edit.dart';
 import 'package:admin/view/screen/categories/view.dart';
 import 'package:admin/view/screen/home/home.dart';
+import 'package:admin/view/screen/items/add.dart';
+import 'package:admin/view/screen/items/edit.dart';
+import 'package:admin/view/screen/items/view.dart';
 import 'package:admin/view/screen/orders/orderscreen.dart';
 import 'package:admin/view/screen/initialstart/language.dart';
 import 'package:admin/view/screen/initialstart/onboarding.dart';
@@ -47,6 +50,10 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.categoriesview, page: ()=> const CategoriesView()),
   GetPage(name: AppRoute.categoriesadd, page: ()=> const CategoriesAdd()),
   GetPage(name: AppRoute.categoriesedit, page: ()=> const CategoriesEdit()),
+
+  GetPage(name: AppRoute.itemsview, page: ()=> const ItemsView()),
+  GetPage(name: AppRoute.itemsedit, page: ()=> const ItemsEdit()),
+  GetPage(name: AppRoute.itemsadd, page: ()=>  const  ItemsAdd()),
 
   GetPage(name: AppRoute.ordersdetails, page: ()=> const OrdersDetails()),
 

@@ -2,7 +2,6 @@
 import 'dart:io';
 
 import 'package:admin/controller/categories/view_controller.dart';
-import 'package:admin/core/constant/routes.dart';
 import 'package:admin/data/model/categoriesmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ import '../../core/class/statusrequest.dart';
 import '../../core/functions/handlingdata.dart';
 import '../../core/functions/uploadfile.dart';
 import '../../data/datasource/remote/categories_data.dart';
-import '../../data/model/categoriesmodel.dart';
 
 
 class CategoriesEditController extends GetxController{
@@ -52,6 +50,10 @@ class CategoriesEditController extends GetxController{
   }
 
   editData([File? file])async{
+    if(name.text==categoriesModel.categoriesName&&namear.text== categoriesModel.categoriesNameAr&&
+    file == null) {
+      return Get.snackbar("Warning", "Nothing different data to update",padding:const EdgeInsets.all(20));
+    }
     if(formstat.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       Map data={
@@ -68,6 +70,7 @@ class CategoriesEditController extends GetxController{
           await c.getData();
           Get.back();
         } else {
+
           // statusRequest = StatusRequest.failure;
         }
       }
