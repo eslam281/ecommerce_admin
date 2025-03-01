@@ -14,7 +14,7 @@ import 'package:image_picker/image_picker.dart';
 
 imageUploadCamera()async{
 
- final  XFile? file = await  ImagePicker().pickImage(source: ImageSource.camera,imageQuality:90) ;
+ final  XFile? file = await  ImagePicker().pickImage(source: ImageSource.camera) ;
  if(file != null){
    return File(file.path);
  }else{

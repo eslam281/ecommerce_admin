@@ -1,8 +1,6 @@
 import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/export.dart';
 
 class CustomDropDownSearch extends StatefulWidget {
 
@@ -53,20 +51,18 @@ class _CustomDropDownSearchState extends State<CustomDropDownSearch> {
         showDropdownSearch();
       },
       decoration:  InputDecoration(
-        filled: true,
-        fillColor: Colors.black12,
-        contentPadding: const EdgeInsets.only(left: 8, bottom: 0, top: 0, right: 15,),
         hintText:widget.hintText==""? "choose category": widget.hintText,
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            width: 1,
-            style: BorderStyle.none,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),
-        ),
-      ),
+          hintStyle: const TextStyle(fontSize: 14),
+          label: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 9),
+              child: Text(
+                "Category",
+                style: Theme.of(context).textTheme.headlineMedium,
+              )),
+          suffixIcon: const Icon(Icons.arrow_drop_down),
+          contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
     );
   }
 }

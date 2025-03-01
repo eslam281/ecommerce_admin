@@ -2,7 +2,6 @@ import 'package:admin/core/class/handlingdataview.dart';
 import 'package:admin/core/constant/color.dart';
 import 'package:admin/core/shared/customtextformglobal.dart';
 import 'package:admin/view/widget/auth/custombuttomauth.dart';
-import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -48,15 +47,15 @@ class ItemsAdd extends StatelessWidget {
 
                   CustomTextFormGlobal(label: "item count", suffixIcon: const Icon(Icons.add),
                       mycontroller: controller.items_count, valid:(v0) => validInput(v0,0,10000000000,"number") ,
-                      type:TextInputType.name),
+                      type:TextInputType.number),
 
                   CustomTextFormGlobal(label: "items price", suffixIcon: const Icon(Icons.add),
                       mycontroller: controller.items_price, valid:(v0) => validInput(v0,1,10000000000,"number") ,
-                      type:TextInputType.name),
+                      type:TextInputType.number),
 
                   CustomTextFormGlobal(label: "discount", suffixIcon: const Icon(Icons.add),
                       mycontroller: controller.items_discount, valid:(v0) => validInput(v0,0,3,"name") ,
-                      type:TextInputType.name),
+                      type:TextInputType.number),
 
                   CustomDropDownSearch(hintText: controller.items_categ.text,title:"choose",
                   dropdownSelectedName:controller.items_categ, dropdownSelectedId:controller.items_categid,

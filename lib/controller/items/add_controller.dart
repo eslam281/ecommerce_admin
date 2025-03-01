@@ -112,14 +112,12 @@ class ItemsAddController extends GetxController{
       Map data={
         "name":name.text,
         "namear":namear.text,
-        "items_categ":items_categ.text,
-        "items_desc":items_desc.text,
-        "items_desc_ar":items_desc_ar.text,
-        "items_count":items_count.text,
-        // "items_active":items_active.text,
-        "items_price":items_price.text,
-        "items_discount":items_discount.text,
-
+        "categ":items_categid.text,
+        "desc":items_desc.text,
+        "desc_ar":items_desc_ar.text,
+        "count":items_count.text,
+        "price":items_price.text,
+        "discount":items_discount.text,
       };
       var response = await itemsData.addData(data,file!);
       statusRequest = handlingData(response);
