@@ -6,7 +6,6 @@ import 'package:admin/controller/items/view_controller.dart';
 import 'package:admin/data/model/itemsmodel.dart';
 import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +23,7 @@ class ItemsAddController extends GetxController{
   late TextEditingController name ;
   late TextEditingController namear ;
   late TextEditingController items_categ ;
+  late TextEditingController  items_categid;
   late TextEditingController items_desc ;
   late TextEditingController items_desc_ar ;
   late TextEditingController items_count ;
@@ -43,6 +43,7 @@ class ItemsAddController extends GetxController{
     name = TextEditingController();
     namear = TextEditingController();
     items_categ = TextEditingController();
+    items_categid = TextEditingController();
     items_desc = TextEditingController();
     items_desc_ar = TextEditingController();
     items_count = TextEditingController();
@@ -55,6 +56,7 @@ class ItemsAddController extends GetxController{
     namear.dispose();
     name.dispose();
     items_categ.dispose();
+    items_categid.dispose();
     items_desc.dispose();
     items_desc_ar.dispose();
     items_count.dispose();
@@ -109,21 +111,21 @@ class ItemsAddController extends GetxController{
   }
   showDropdownList(context)async{
     CategoriesViewController c = Get.put(CategoriesViewController());
-     List<SelectedListItem<String>> listOfCities =[];
+     List<SelectedListItem> listOfCities =[];
     await c.getData();
 
      listOfCities.addAll( c.data.map((e) =>
-         SelectedListItem<String>(data: e.categoriesName!),));
-    DropDownState<String>(
-      dropDown: DropDown<String>(
+         SelectedListItem(name: e.categoriesName!),));
+    DropDownState(
+      dropDown: DropDown(
         data: listOfCities,
         onSelected: (selectedItems) {
           SelectedListItem selectedListItem = selectedItems[0];
-          items_categ.text = selectedListItem.data;
+          items_categ.text = selectedListItem.name;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                selectedListItem.data.toString(),
+                selectedListItem.name.toString(),
               ),
             ),
           );

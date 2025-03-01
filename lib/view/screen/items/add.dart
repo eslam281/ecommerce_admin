@@ -2,11 +2,13 @@ import 'package:admin/core/class/handlingdataview.dart';
 import 'package:admin/core/constant/color.dart';
 import 'package:admin/core/shared/customtextformglobal.dart';
 import 'package:admin/view/widget/auth/custombuttomauth.dart';
+import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/items/add_controller.dart';
 import '../../../core/functions/validinput.dart';
+import '../../../core/shared/customdropdownsearch.dart';
 
 class ItemsAdd extends StatelessWidget {
   const ItemsAdd({super.key});
@@ -56,36 +58,12 @@ class ItemsAdd extends StatelessWidget {
                       mycontroller: controller.items_discount, valid:(v0) => validInput(v0,0,3,"name") ,
                       type:TextInputType.name),
 
-                  TextFormField(
-                      controller: controller.items_categ,
-                      cursorColor: Colors.black,
-                      readOnly: true,
-                      onTap: () {
-                        FocusScope.of(context).unfocus();
-                        controller.showDropdownList(context);
-                      },
-                      decoration:  InputDecoration(
-                        filled: true,
-                        fillColor: Colors.black12,
-                        contentPadding: const EdgeInsets.only(
-                          left: 8,
-                          bottom: 0,
-                          top: 0,
-                          right: 15,
-                        ),
-                        hintText:controller.items_categ.text==""? "choose category":
-                        controller.items_categ.text,
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1,
-                            style: BorderStyle.none,
-                          ),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                  ),
+                  CustomDropDownSearch(hintText: controller.items_categ.text,title:"choose",
+                  dropdownSelectedName:controller.items_categ, dropdownSelectedId:controller.items_categid,
+                      listdata: [
+                        SelectedListItem(name: "a",value: "1"),
+                        SelectedListItem(name: "b",value: "2"),
+                      ]),
 
 
                   Container(
