@@ -60,10 +60,7 @@ class ItemsAdd extends StatelessWidget {
 
                   CustomDropDownSearch(hintText: controller.items_categ.text,title:"choose",
                   dropdownSelectedName:controller.items_categ, dropdownSelectedId:controller.items_categid,
-                      listdata: [
-                        SelectedListItem(name: "a",value: "1"),
-                        SelectedListItem(name: "b",value: "2"),
-                      ]),
+                      listdata:controller.dropdownlist),
 
 
                   Container(
