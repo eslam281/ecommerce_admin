@@ -1,10 +1,8 @@
 
 import 'dart:io';
 
-import 'package:admin/controller/categories/view_controller.dart';
 import 'package:admin/controller/items/view_controller.dart';
 import 'package:admin/data/model/itemsmodel.dart';
-import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

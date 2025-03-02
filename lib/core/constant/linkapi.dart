@@ -35,10 +35,11 @@ class AppLink{
 // ============================== Orders =================================//
   static const String pending ="$server/admin/orders/view.php";
   static const String archive ="$server/admin/orders/archive.php";
-  static const String acceptedOrders ="$server/admin/orders/accepted.php";
+  static const String acceptedOrders ="$server/admin/orders/viewaccepted.php";
+  static const String ordersdetails ="$server/orders/details.php";
+
   static const String approveOrders ="$server/admin/orders/approve.php";
   static const String doneOrders ="$server/admin/orders/done.php";
-  static const String ordersdetails ="$server/orders/details.php";
 
 
 }

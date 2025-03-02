@@ -40,7 +40,9 @@ class Home extends StatelessWidget {
                         CardAdmin(url: AppImageAsset.logo, title: "Categories", onTap: (){
                           Get.toNamed(AppRoute.categoriesview);
                         }),
-                        CardAdmin(url: AppImageAsset.logo, title: "Orders", onTap: (){}),
+                        CardAdmin(url: AppImageAsset.logo, title: "Orders", onTap: (){
+                          Get.toNamed(AppRoute.order);
+                        }),
                         CardAdmin(url: AppImageAsset.logo, title: "Message", onTap: (){}),
                         CardAdmin(url: AppImageAsset.logo, title: "Report", onTap: (){}),
 

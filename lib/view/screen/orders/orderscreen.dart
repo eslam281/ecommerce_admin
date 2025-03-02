@@ -17,13 +17,7 @@ class OrderScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           bottomNavigationBar:const CustomBottomAppBarHome(),
-          body:PopScope(
-            onPopInvokedWithResult:(b, dynamic){
-                alertExitApp();
-            },
-        canPop: false,
-        child: controller.listpage.elementAt(controller.currentpage),
-          )
+          body: controller.listpage.elementAt(controller.currentpage),
         );
       }
     );

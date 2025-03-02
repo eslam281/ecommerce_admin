@@ -22,7 +22,7 @@ class OrderScreenControllerImp extends OrderScreenController {
   ];
   List<Map> bottomappbat = [
     {"title": "pending", "icon": Icons.padding_rounded},
-    {"title": "Accepted", "icon": Icons.delivery_dining},
+    {"title": "Accepted", "icon": Icons.done_outline_outlined},
     {"title": "archive", "icon": Icons.archive},
   ];
 
