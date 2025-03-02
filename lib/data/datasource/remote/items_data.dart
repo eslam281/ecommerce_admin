@@ -29,7 +29,7 @@ class ItemsData{
     (file == null)?
     response = await crud.postData(AppLink.itemsedit, data)
         :
-    response = await crud.addRequestWithImageOne(AppLink.categoriesedit, data,file);
+    response = await crud.addRequestWithImageOne(AppLink.itemsedit, data,file);
 
     return response.fold((l) => l, (r) => r,);
   }

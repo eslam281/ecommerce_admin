@@ -32,7 +32,7 @@ class ItemsEditController extends GetxController{
   late TextEditingController items_price ;
   late TextEditingController items_discount;
 
-
+  late String active;
   late ItemsModel itemsModel;
   File? file;
 
@@ -65,6 +65,7 @@ class ItemsEditController extends GetxController{
     items_count.text = itemsModel.itemsCount.toString();
     items_price.text = itemsModel.itemsPrice.toString();
     items_discount.text = itemsModel.itemsDiscount.toString();
+    active=itemsModel.itemsActive.toString();
   }
   @override
   dispose(){
@@ -78,6 +79,11 @@ class ItemsEditController extends GetxController{
     items_count.dispose();
     items_price.dispose();
     items_discount.dispose();
+  }
+
+  changeStatusActive(val){
+    active = val;
+    update();
   }
 
   showOptionImage()async{
@@ -96,14 +102,14 @@ class ItemsEditController extends GetxController{
   }
 
   editData([File? file])async{
-    if(name.text==itemsModel.itemsName&&namear.text== itemsModel.itemsNameAr&&
-        file == null) {
+    if( file == null&&name.text==itemsModel.itemsName&&namear.text== itemsModel.itemsNameAr&&
+       items_categid.text == itemsModel.itemsCateg.toString()) {
       return Get.snackbar("Warning", "Nothing different data to update",padding:const EdgeInsets.all(20));
     }
     if(formstat.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       Map data={
-        "id":itemsModel.itemsId,
+        "id":itemsModel.itemsId.toString(),
         "imagenameold":itemsModel.itemsImage,
         "name":name.text,
         "namear":namear.text,
@@ -111,9 +117,11 @@ class ItemsEditController extends GetxController{
         "desc":items_desc.text,
         "desc_ar":items_desc_ar.text,
         "count":items_count.text,
+        "active":active,//items_active.text,
         "price":items_price.text,
         "discount":items_discount.text,
       };
+      print(data);
       var response = await itemsData.editData(data,file);
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {

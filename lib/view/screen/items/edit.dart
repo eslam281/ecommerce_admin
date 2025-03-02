@@ -3,10 +3,8 @@ import 'package:admin/core/constant/color.dart';
 import 'package:admin/core/shared/customtextformglobal.dart';
 import 'package:admin/view/widget/auth/custombuttomauth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/categories/edit_controller.dart';
 import '../../../controller/items/edit_controller.dart';
 import '../../../core/functions/validinput.dart';
 import '../../../core/shared/customdropdownsearch.dart';
@@ -63,6 +61,19 @@ class ItemsEdit extends StatelessWidget {
                         dropdownSelectedName:controller.items_categ, dropdownSelectedId:controller.items_categid,
                         listdata:controller.dropdownlist),
 
+                    const SizedBox(height: 10,),
+
+                    RadioListTile(title:const Text("Active"),
+                      value: "1", groupValue:controller.active ,onChanged: (value) {
+                      controller.changeStatusActive(value);
+                    },),
+
+                    RadioListTile(title:const Text("Hide"),
+                      value: "0", groupValue:controller.active,onChanged: (value) {
+                      controller.changeStatusActive(value);
+                    },),
+
+                    const SizedBox(height: 10,),
 
                     Container(
                         padding:const EdgeInsets.all(20),
