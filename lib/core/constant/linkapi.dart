@@ -39,7 +39,7 @@ class AppLink{
   static const String ordersdetails ="$server/orders/details.php";
 
   static const String approveOrders ="$server/admin/orders/approve.php";
-  static const String doneOrders ="$server/admin/orders/done.php";
+  static const String doneOrders ="$server/admin/orders/prepare.php";
 
 
 }

@@ -30,8 +30,7 @@ class AcceptedControllerImp extends AcceptedController{
   getData()async{
     data.clear();
     statusRequest =StatusRequest.loading;
-    var response =await acceptedData.getData(
-        myServices.sharedPreferences.getString("id")!);
+    var response =await acceptedData.getData();
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){
@@ -45,10 +44,10 @@ class AcceptedControllerImp extends AcceptedController{
     update();
   }
 
-  doneDelivery(String userid,String orderid)async{
+  doneDelivery(String userid,String orderid,String ordertype)async{
     data.clear();
     statusRequest =StatusRequest.loading;
-    var response =await acceptedData.doneDelivery(orderid,userid,);
+    var response =await acceptedData.doneDelivery(orderid,userid,ordertype);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){

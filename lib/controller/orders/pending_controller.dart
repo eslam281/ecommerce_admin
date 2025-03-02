@@ -46,8 +46,7 @@ class PendingControllerImp extends PendingController{
   approve(String userid,String orderid)async{
     data.clear();
     statusRequest =StatusRequest.loading;
-    var response =await pendingData.approveOrders(orderid,userid,
-        myServices.sharedPreferences.getString("id")!);
+    var response =await pendingData.approveOrders(orderid,userid);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){
@@ -62,7 +61,10 @@ class PendingControllerImp extends PendingController{
   @override
   String printPaymentMethod(int val) {
     return (val == 0)? "Cash On Delivery": "Payment Card";
+  }
 
+  String printOrdertype(int val) {
+    return (val == 0)? "Delivery": "Receive";
   }
 
 }

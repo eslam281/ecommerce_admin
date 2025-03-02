@@ -10,9 +10,9 @@ class OrdersArchiveData{
 
   OrdersArchiveData(this.crud);
 
-  getData(String deliveryid)async{
+  getData()async{
     var response =
-    await crud.postData(AppLink.archive, {"deliveryid":deliveryid});
+    await crud.postData(AppLink.archive, {});
     return response.fold((l) => l, (r) => r,);
   }
 

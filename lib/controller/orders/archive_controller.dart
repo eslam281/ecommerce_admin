@@ -30,8 +30,7 @@ class ArchiveControllerImp extends ArchiveController{
   getData()async{
     data.clear();
     statusRequest =StatusRequest.loading;
-    var response =await orderData.getData(
-        myServices.sharedPreferences.getString("id")!);
+    var response =await orderData.getData();
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
       if(response['status']=="success"){

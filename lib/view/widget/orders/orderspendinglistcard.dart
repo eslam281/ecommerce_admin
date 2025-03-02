@@ -39,8 +39,11 @@ class CardOrdersList extends GetView<PendingControllerImp> {
               const Divider(),
 
               Text("Order Price : ${listdata.ordersPrice} \$"),
+              Text("Order type : ${controller.printOrdertype(listdata.ordersType!)}"),
+              if(listdata.ordersType == 0)
               Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
               Text("Payment Method : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
+              if(listdata.ordersType == 0)
               Text("Address : ${listdata.addressCity} "),
 
               const Divider(),
@@ -59,7 +62,7 @@ class CardOrdersList extends GetView<PendingControllerImp> {
 
                   const SizedBox(width: 10,),
 
-                  if(listdata.ordersStatus == 2)
+                  if(listdata.ordersStatus == 0)
                   MaterialButton(onPressed: () {
                     controller.approve(listdata.ordersUsersid.toString(), listdata.ordersId.toString());
                   },
