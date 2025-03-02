@@ -35,11 +35,11 @@ class ItemsView extends StatelessWidget {
                     ),
                     Expanded(flex: 3,
                         child:ListTile(title:Text(current.itemsName!),
-                        subtitle: Text(current.itemsDate!),
+                        subtitle: Text(current.categoriesName.toString()),
                         trailing: IconButton(icon:const Icon( Icons.delete_forever_outlined,color: Colors.red,),
                         onPressed:(){
                           Get.defaultDialog(title:"waring",middleText:"are you sure",
-                              onConfirm: (){controller.deleteCategory(current.itemsId.toString(),
+                              onConfirm: (){controller.deleteItem(current.itemsId.toString(),
                                   current.itemsImage!);
                             Get.back();
                             },
@@ -49,9 +49,9 @@ class ItemsView extends StatelessWidget {
                         onTap:(){controller.goToPageEdit(current);},)
                     ),
                   ],
-                ));
-                  }
-                ,),
+                )
+                );
+                  },),
             );
           }
         ),

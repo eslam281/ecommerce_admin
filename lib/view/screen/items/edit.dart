@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import '../../../controller/categories/edit_controller.dart';
 import '../../../controller/items/edit_controller.dart';
 import '../../../core/functions/validinput.dart';
+import '../../../core/shared/customdropdownsearch.dart';
 
 class ItemsEdit extends StatelessWidget {
   const ItemsEdit({super.key});
@@ -18,7 +19,7 @@ class ItemsEdit extends StatelessWidget {
     Get.put(ItemsEditController());
     return Scaffold(
       appBar:AppBar(title:const Text("Edit Items"),),
-      body:GetBuilder<CategoriesEditController>(
+      body:GetBuilder<ItemsEditController>(
           builder: (controller) {
             return HandlingDataView(
               statusRequest:controller.statusRequest,
@@ -38,18 +39,44 @@ class ItemsEdit extends StatelessWidget {
                         mycontroller: controller.namear, valid:(v0) => validInput(v0,4,50,"name") ,
                         type:TextInputType.name),
 
+                    CustomTextFormGlobal(label: "item description", suffixIcon: const Icon(Icons.add),
+                        mycontroller: controller.items_desc, valid:(v0) => validInput(v0,4,1000,"name") ,
+                        type:TextInputType.name),
+
+                    CustomTextFormGlobal(label: "item description (Arabic)", suffixIcon: const Icon(Icons.add),
+                        mycontroller: controller.items_desc_ar, valid:(v0) => validInput(v0,4,1000,"name") ,
+                        type:TextInputType.name),
+
+                    CustomTextFormGlobal(label: "item count", suffixIcon: const Icon(Icons.add),
+                        mycontroller: controller.items_count, valid:(v0) => validInput(v0,0,10000000000,"number") ,
+                        type:TextInputType.number),
+
+                    CustomTextFormGlobal(label: "items price", suffixIcon: const Icon(Icons.add),
+                        mycontroller: controller.items_price, valid:(v0) => validInput(v0,1,10000000000,"number") ,
+                        type:TextInputType.number),
+
+                    CustomTextFormGlobal(label: "discount", suffixIcon: const Icon(Icons.add),
+                        mycontroller: controller.items_discount, valid:(v0) => validInput(v0,0,3,"name") ,
+                        type:TextInputType.number),
+
+                    CustomDropDownSearch(hintText: controller.items_categ.text,title:"choose",
+                        dropdownSelectedName:controller.items_categ, dropdownSelectedId:controller.items_categid,
+                        listdata:controller.dropdownlist),
+
+
                     Container(
                         padding:const EdgeInsets.all(20),
                         child: MaterialButton(color:AppColor.grey,
-                          onPressed: (){controller.chooseImage();},child: const Text("choose category image",
+                          onPressed: (){controller.showOptionImage();},child: const Text("choose category image",
                             style:TextStyle(fontSize: 18),),)),
 
                     if(controller.file != null)
                       Container(
                           margin: const EdgeInsets.all(10),
-                          child: SvgPicture.file(controller.file!,width: 50,)),
+                          child: Image.file(controller.file!,width: 50,)),
 
-                    CustomButtomAuth(onPressed:() =>controller.editData(), text: "Add")
+
+                    CustomButtomAuth(onPressed:() =>controller.editData(), text: "Edit")
                   ],),
                 ),
               ),

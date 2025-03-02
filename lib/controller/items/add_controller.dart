@@ -40,7 +40,7 @@ class ItemsAddController extends GetxController{
 
   @override
   void onInit() {
-    getData();
+    getCate();
     intialdata();
     super.onInit();
   }
@@ -83,7 +83,7 @@ class ItemsAddController extends GetxController{
     file = await imageUploadCamera();
     update();
   }
-  getData()async{
+  getCate()async{
     CategoriesData categoriesData = CategoriesData(Get.find());
     List<CategoriesModel> datacat =[];
 
@@ -133,30 +133,30 @@ class ItemsAddController extends GetxController{
       update();
     }
   }
-  showDropdownList(context)async{
-    CategoriesViewController c = Get.put(CategoriesViewController());
-     List<SelectedListItem> listOfCities =[];
-    await c.getData();
-
-     listOfCities.addAll( c.data.map((e) =>
-         SelectedListItem(name: e.categoriesName!),));
-    DropDownState(
-      dropDown: DropDown(
-        data: listOfCities,
-        onSelected: (selectedItems) {
-          SelectedListItem selectedListItem = selectedItems[0];
-          items_categ.text = selectedListItem.name;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                selectedListItem.name.toString(),
-              ),
-            ),
-          );
-        },
-
-      ),
-    ).showModal(context);
-  }
+  // showDropdownList(context)async{
+  //   CategoriesViewController c = Get.put(CategoriesViewController());
+  //    List<SelectedListItem> listOfCities =[];
+  //   await c.getData();
+  //
+  //    listOfCities.addAll( c.data.map((e) =>
+  //        SelectedListItem(name: e.categoriesName!),));
+  //   DropDownState(
+  //     dropDown: DropDown(
+  //       data: listOfCities,
+  //       onSelected: (selectedItems) {
+  //         SelectedListItem selectedListItem = selectedItems[0];
+  //         items_categ.text = selectedListItem.name;
+  //         ScaffoldMessenger.of(context).showSnackBar(
+  //           SnackBar(
+  //             content: Text(
+  //               selectedListItem.name.toString(),
+  //             ),
+  //           ),
+  //         );
+  //       },
+  //
+  //     ),
+  //   ).showModal(context);
+  // }
 
 }

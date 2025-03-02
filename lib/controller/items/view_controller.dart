@@ -34,7 +34,7 @@ class ItemsViewController extends GetxController{
     }
     update();
   }
-  deleteCategory(String id ,String imagename)async{
+  deleteItem(String id ,String imagename)async{
     var response =await itemsData.deleteData(id,imagename);
     statusRequest =handlingData(response);
     if(statusRequest == StatusRequest.success){
