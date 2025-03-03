@@ -41,6 +41,7 @@ class CardOrdersListAccepted extends GetView<AcceptedControllerImp> {
               Text("Order Price : ${listdata.ordersPrice} \$"),
               Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
               Text("Payment Method : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
+             if(listdata.ordersType == 0)
               Text("Address : ${listdata.addressCity} "),
 
               const Divider(),

@@ -10,26 +10,23 @@ class Archive extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ArchiveControllerImp());
-    return Scaffold(
-        appBar: AppBar(title:const Text("Orders Archive"),),
-        body: GetBuilder<ArchiveControllerImp>(builder: (controller) {
-          return HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: Container(
-                padding: const EdgeInsets.all(10),
-                child: ListView.builder(
-                    itemCount: controller.data.length,
-                    itemBuilder: ((context, index) {
-                      return Column(
-                        children: [
-                          CardOrdersListArchive(listdata: controller.data[index]),
-                          const SizedBox(height: 20,)
-                        ],
-                      );
-                    }
-                    )),
-              ));
-        }));
+    return GetBuilder<ArchiveControllerImp>(builder: (controller) {
+      return HandlingDataView(
+          statusRequest: controller.statusRequest,
+          widget: Container(
+            padding: const EdgeInsets.all(10),
+            child: ListView.builder(
+                itemCount: controller.data.length,
+                itemBuilder: ((context, index) {
+                  return Column(
+                    children: [
+                      CardOrdersListArchive(listdata: controller.data[index]),
+                      const SizedBox(height: 20,)
+                    ],
+                  );
+                }
+                )),
+          ));
+    });
   }
 }

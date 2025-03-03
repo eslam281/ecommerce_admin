@@ -21,12 +21,6 @@ class ArchiveControllerImp extends ArchiveController{
 
 
   @override
-  void onInit() {
-    getData();
-    super.onInit();
-  }
-
-  @override
   getData()async{
     data.clear();
     statusRequest =StatusRequest.loading;
